@@ -1,4 +1,5 @@
 import React from 'react';
+import './FiltersBar.css';
 
 const FiltersBar = (props) => {
     const {onClick} = props;
