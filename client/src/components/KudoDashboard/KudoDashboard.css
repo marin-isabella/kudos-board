@@ -1,0 +1,39 @@
+.kudo-dashboard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.kudo-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.create-new-kudo-board {
+  background-color: #646cff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin: 0 auto 16px;
+  width: auto;
+  display: block;
+}
+
+.create-new-kudo-board:hover {
+    background-color: #535bf2;
+    color: white;
+
+}
+
+.kudo-boards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+}

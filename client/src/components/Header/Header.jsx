@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchForm from '../SearchForm/SearchForm';
-//import './Header.css';
+import './Header.css';
 import FiltersBar from '../FiltersBar/FiltersBar';
 
 const Header = ({ onSearch, onClear}) => {

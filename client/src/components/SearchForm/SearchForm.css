@@ -1,0 +1,24 @@
+.search-form {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+}
+
+.search-form input {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.search-button, .clear-button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 10px 19px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  background-color: #2e8b57;
+  cursor: pointer;
+}
