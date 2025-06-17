@@ -5,6 +5,7 @@
 2. Run the backend server by entering the following commands:
     ```
     cd server
+    npm install
     sudo npm install -g nodemon
     nodemon start
     ```
