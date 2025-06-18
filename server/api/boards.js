@@ -92,6 +92,12 @@ router.delete("/:id", async (req, res, next) => {
         });
 
         if (board) {
+            // delete all cards tied to this board to avoid foreign key constraint errors
+            await prisma.card.deleteMany({
+                where: { boardId: id }
+            });
+
+            // delete the board
             const deleted = await prisma.board.delete({
                 where: { id }
             });
@@ -110,7 +116,7 @@ router.use((next) => {
 });
 
 // Error handling middleware
-router.use((err, res) => {
+router.use((req, res, next, err) => {
     const { message, status = 500 } = err;
     res.status(status).json({ message });
 });

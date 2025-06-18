@@ -139,7 +139,7 @@ router.use((next) => {
 });
 
 // Error handling middleware
-router.use((err, res) => {
+router.use((req, res, next, err) => {
     const { message, status = 500 } = err;
     res.status(status).json({ message });
 });

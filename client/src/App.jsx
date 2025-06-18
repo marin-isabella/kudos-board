@@ -14,6 +14,7 @@ function App() {
       .then(data => setKudoboard(data))
       .catch(error => console.error("Error fetching kudoboards: ", error));
   }
+
   const handleSearch = (query) => {
     setSearchQuery(query);
   }
