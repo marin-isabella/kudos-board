@@ -2,13 +2,20 @@ import './App.css'
 import Header from './components/Header/Header';
 import { useState, useEffect } from 'react';
 import KudoDashboard from './components/KudoDashboard/KudoDashboard';
+import FiltersBar from './components/FiltersBar/FiltersBar';
 
 function App() {
   const [kudoboard, setKudoboard] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedFilter, setSelectedFilter] = useState('All');
 
-  const fetchKudoboard = async () => {
-    const endpoint_url = 'http://localhost:3000/api/boards';
+  const fetchKudoboard = async (category) => {
+    let endpoint_url = 'http://localhost:3000/api/boards';
+
+    if (category && category !== 'All') {
+      endpoint_url += `?category=${category}`;
+    }
+
     fetch(endpoint_url)
       .then(response => response.json())
       .then(data => setKudoboard(data))
@@ -23,6 +30,20 @@ function App() {
     setSearchQuery('');
   }
 
+  const handleFilterClick = (e) => {
+    const filterName = e.target.textContent;
+    setSelectedFilter(filterName);
+
+    if (filterName === 'Recent') {
+      fetch('http://localhost:3000/api/boards/recent')
+        .then(response => response.json())
+        .then(data => setKudoboard(data))
+        .catch(error => console.error("Error fetching recent kudoboards: ", error));
+    } else {
+      fetchKudoboard(filterName);
+    }
+  }
+
   useEffect(() => {
     fetchKudoboard();
   }, [])
@@ -31,14 +52,12 @@ function App() {
     <>
       <Header onSearch={handleSearch} onClear={handleClear}/>
       <main className="main">
-        {/* different buttons for tabs: all, recent, celebration, thank you, inspiration*/}
-        {/* add conditional rendering for kudodashboard and board details. if the user selects on a kudoboard, show board details, else show kudodashboard.*/}
+        <FiltersBar onClick={handleFilterClick} selectedFilter={selectedFilter} />
         <KudoDashboard kudoboards={kudoboard}/>
       </main>
       <footer>
         <p>Copyright © 2025. Created by Isabella Marin.</p>
       </footer>
-
     </>
   )
 }
