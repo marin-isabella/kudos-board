@@ -14,7 +14,6 @@ const FiltersBar = (props) => {
             </div>
         </>
     )
-
 }
 
 export default FiltersBar;
