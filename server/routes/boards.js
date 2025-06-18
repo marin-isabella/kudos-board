@@ -8,10 +8,13 @@ router.use(helmet());
 router.use(express.json());
 router.use(cors());
 
-// [GET] - get all boards
+// [GET] - get all boards and allow filtering by category as query param
 router.get("/", async (req, res, next) => {
+    const { category } = req.query;
+    const categoryFilter = category ? { category } : {};
     try {
         const boards = await prisma.board.findMany({
+            where: categoryFilter,
             include: {
                 cards: true
             }
@@ -22,7 +25,22 @@ router.get("/", async (req, res, next) => {
     }
 });
 
+// [GET] get boards by recent
+router.get("/recent", async (req, res, next) => {
+    try {
+        const boards = await prisma.board.findMany({
+            orderBy: [{
+                id: "desc"
+            }],
+        })
+        res.status(201).json(boards);
+    } catch (err) {
+        next(err);
+    }
+});
+
 // [GET] search a board by id
+// this route is not being used and will be deleted soon
 router.get("/search/:id", async (req, res, next) => {
     try {
         const id = req.params.id;
@@ -63,37 +81,6 @@ router.post("/", async (req, res, next) => {
     }
 });
 
-// [GET] get boards by filters (category)
-router.get("/filter/:id", async (req, res,  next) => {
-    try {
-        const id = req.params.id;
-        const boards = await prisma.board.findMany({
-            where: {
-                category: {
-                    equals: id,
-                }
-            }
-        });
-        res.status(201).json(boards);
-    } catch (err) {
-        next(err);
-    }
-})
-
-// [GET] get boards by recent
-router.get("/recent", async (req, res, next) => {
-    try {
-        const boards = await prisma.board.findMany({
-            orderBy: [{
-                id: "desc"
-            }],
-        })
-        res.status(201).json(boards);
-    } catch (err) {
-        next(err);
-    }
-});
-
 // [DELETE] deletes a board
 router.delete("/:id", async (req, res, next) => {
     try {
@@ -114,7 +101,6 @@ router.delete("/:id", async (req, res, next) => {
         next(err);
     }
 });
-
 
 // CATCH-ALL
 router.use((next) => {

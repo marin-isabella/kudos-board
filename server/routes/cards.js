@@ -23,6 +23,7 @@ router.get("/", async (req, res, next) => {
 });
 
 // [GET] - get card by ID
+// TODO: delete this route
 router.get("/:id", async (req, res, next) => {
     try {
         const id = parseInt(req.params.id);
@@ -80,29 +81,6 @@ router.post("/", async (req, res, next) => {
     }
 });
 
-// [DELETE] - deletes a card
-router.delete("/:id", async (req, res, next) => {
-    try {
-        const id = parseInt(req.params.id);
-
-        const card = await prisma.card.findUnique({
-            where: { id }
-        });
-
-        if (card) {
-            const deleted = await prisma.card.delete({
-                where: { id }
-            });
-            res.status(200).json(deleted);
-        } else {
-            next({status: 404, message: "Card not found"})
-        }
-
-    } catch (err) {
-        next(err);
-    }
-});
-
 // [PUT] - increase voteCount for a card
 router.put("/:id/upvote", async (req, res, next) => {
     try {
@@ -127,6 +105,29 @@ router.put("/:id/upvote", async (req, res, next) => {
         });
 
         res.status(201).json(upvotedCard);
+    } catch (err) {
+        next(err);
+    }
+});
+
+// [DELETE] - deletes a card
+router.delete("/:id", async (req, res, next) => {
+    try {
+        const id = parseInt(req.params.id);
+
+        const card = await prisma.card.findUnique({
+            where: { id }
+        });
+
+        if (card) {
+            const deleted = await prisma.card.delete({
+                where: { id }
+            });
+            res.status(200).json(deleted);
+        } else {
+            next({status: 404, message: "Card not found"})
+        }
+
     } catch (err) {
         next(err);
     }
