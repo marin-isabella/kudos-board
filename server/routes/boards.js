@@ -66,12 +66,14 @@ router.get("/search/:id", async (req, res, next) => {
 // [POST] CREATE a new board
 router.post("/", async (req, res, next) => {
     try {
-        const { title, category } = req.body;
+        const { title, category, gif, author } = req.body;
 
         const newBoard = await prisma.board.create({
             data: {
                 title,
-                category
+                category,
+                gif,
+                author
             }
         });
 
@@ -84,7 +86,7 @@ router.post("/", async (req, res, next) => {
 // [DELETE] deletes a board
 router.delete("/:id", async (req, res, next) => {
     try {
-        const id = req.params.id;
+        const id = parseInt(req.params.id);
         const board = await prisma.board.findUnique({
             where: { id }
         });
