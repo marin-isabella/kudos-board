@@ -22,6 +22,19 @@ router.get("/", async (req, res, next) => {
     }
 });
 
+// [GET] - get card by ID
+router.get("/:id", async (req, res, next) => {
+    try {
+        const id = parseInt(req.params.id);
+        const card = await prisma.card.findUnique({
+            where: { id }
+        });
+        res.status(201).json(card);
+    } catch (err) {
+        next(err);
+    }
+});
+
 // [GET] - get cards by board ID
 router.get("/board/:boardId", async (req, res, next) => {
     try {
@@ -90,10 +103,10 @@ router.delete("/:id", async (req, res, next) => {
     }
 });
 
-// [POST] - increase voteCount for a card
-router.post("/:id/upvote", async (req, res, next) => {
+// [PUT] - increase voteCount for a card
+router.put("/:id/upvote", async (req, res, next) => {
     try {
-        const id = req.params.id;
+        const id = parseInt(req.params.id);
 
         const card = await prisma.card.findUnique({
             where: { id }
