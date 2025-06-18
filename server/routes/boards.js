@@ -124,7 +124,6 @@ router.use((next) => {
 // Error handling middleware
 router.use((err, res) => {
     const { message, status = 500 } = err;
-    console.log(message);
     res.status(status).json({ message });
 });
 

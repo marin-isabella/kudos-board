@@ -9,8 +9,8 @@ app.use(express.json());
 const boardRoutes = require('./routes/boards.js');
 app.use('/boards', boardRoutes);
 
-// const cardRoutes = require('./routes/cards.js');
-// app.use('/cards', cardRoutes);
+const cardRoutes = require('./routes/cards.js');
+app.use('/cards', cardRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is listening at port: ${PORT}`)
