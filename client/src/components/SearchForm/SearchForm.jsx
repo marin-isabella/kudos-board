@@ -20,7 +20,7 @@ const SearchForm = ({ onSearch, onClear }) => {
     return (
         <form className="search-form" onSubmit={handleSubmit}>
             <input type="text" placeholder="Search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
-            <button className="search-button">Search</button>
+            <button type="submit" className="search-button">Search</button>
             <button className="clear-button" onClick={handleClear}>Clear</button>
         </form>
     );

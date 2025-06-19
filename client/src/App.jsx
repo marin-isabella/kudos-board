@@ -24,8 +24,8 @@ function App() {
 
   const fetchSearch = async (query) => {
     let endpoint_url = 'http://localhost:3000/api/boards';
-    if (searchQuery && searchQuery !== '') {
-      endpoint_url += `?search=${searchQuery}`;
+    if (query && query !== '') {
+      endpoint_url += `?search=${query}`;
     }
     fetch(endpoint_url)
       .then(response => response.json())
