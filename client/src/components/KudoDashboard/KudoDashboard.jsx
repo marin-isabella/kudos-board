@@ -13,7 +13,7 @@ const KudoDashboard = ({ kudoboards }) => {
                     <div className="no-boards-message">No boards to show</div>
                 ) : (
                     kudoboards.map(kudoboard => (
-                        <KudoBoard key={kudoboard.id} image={kudoboard.gif} category={kudoboard.category} title={kudoboard.title} author={kudoboard.author}/>
+                        <KudoBoard key={kudoboard.id} id={kudoboard.id} image={kudoboard.gif} category={kudoboard.category} title={kudoboard.title} author={kudoboard.author}/>
                     ))
                 )}
             </div>
