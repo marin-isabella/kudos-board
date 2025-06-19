@@ -12,7 +12,7 @@ function App() {
   const fetchKudoboard = async (category) => {
     let endpoint_url = 'http://localhost:3000/api/boards';
 
-    if (category && category !== 'All') {
+    if (category && category!== 'All') {
       endpoint_url += `?category=${category}`;
     }
 
@@ -22,12 +22,27 @@ function App() {
       .catch(error => console.error("Error fetching kudoboards: ", error));
   }
 
+  const fetchSearch = async (query) => {
+    let endpoint_url = 'http://localhost:3000/api/boards';
+    if (searchQuery && searchQuery !== '') {
+      endpoint_url += `?search=${searchQuery}`;
+    }
+    fetch(endpoint_url)
+      .then(response => response.json())
+      .then(data => setKudoboard(data))
+      .catch(error => console.error("Error fetching kudoboards: ", error));
+  }
+
   const handleSearch = (query) => {
     setSearchQuery(query);
+    fetchSearch(query);
+    setSelectedFilter(query.category);
   }
 
   const handleClear = () => {
     setSearchQuery('');
+    fetchKudoboard();
+    setSelectedFilter("All");
   }
 
   const handleFilterClick = (e) => {

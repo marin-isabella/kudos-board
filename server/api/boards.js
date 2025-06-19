@@ -8,18 +8,36 @@ router.use(helmet());
 router.use(express.json());
 router.use(cors());
 
-// [GET] - get all boards and allow filtering by category as query param
+// [GET] - get all boards
+// allow filtering by category as query param and allow searching by title as query param
 router.get("/", async (req, res, next) => {
-    const { category } = req.query;
+    const { category, search } = req.query;
     const categoryFilter = category ? { category } : {};
+    const searchFilter = search ? { title: { contains: search } } : {};
+
     try {
+        if (category || search) {
+            const boards = await prisma.board.findMany({
+                where: {
+                    OR: [
+                        categoryFilter,
+                        searchFilter
+                    ],
+                },
+                include: {
+                    cards: true
+                }
+            });
+            res.status(201).json(boards);
+            return;
+        }
         const boards = await prisma.board.findMany({
-            where: categoryFilter,
             include: {
                 cards: true
             }
-        });
+        })
         res.status(201).json(boards);
+
     } catch (err) {
         next(err);
     }
