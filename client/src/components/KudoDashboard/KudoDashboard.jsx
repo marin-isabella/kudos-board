@@ -20,9 +20,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <div className="kudo-dashboard">
-            <button className="create-new-kudo-board" onClick={openModal}>
-                Create a New Board
-            </button>
+            <button className="create-new-kudo-board" onClick={openModal}>Create a New Board</button>
             <div className="kudo-boards-container">
                 { !kudoboards || kudoboards.length === 0 ? (
                     <div className="no-boards-message">No boards to show</div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './KudoBoard.css';
 
 const KudoBoard = (props) => {
@@ -41,7 +42,7 @@ const KudoBoard = (props) => {
                     <p>Created by {author}</p>
                 </div>
                 <div className="kudo-board-buttons">
-                    <button className="view-board-button">View Board</button>
+                    <Link to={`/board-details/${id}`} state={{title: title, category: category}} className="view-board-button">View Board</Link>
                     <button className="delete-board-button" onClick={() => deleteBoard(id)}>Delete Board</button>
                 </div>
             </div>

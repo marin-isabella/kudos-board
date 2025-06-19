@@ -22,20 +22,6 @@ router.get("/", async (req, res, next) => {
     }
 });
 
-// [GET] - get card by ID
-// TODO: delete this route
-router.get("/:id", async (req, res, next) => {
-    try {
-        const id = parseInt(req.params.id);
-        const card = await prisma.card.findUnique({
-            where: { id }
-        });
-        res.status(201).json(card);
-    } catch (err) {
-        next(err);
-    }
-});
-
 // [GET] - get cards by board ID
 router.get("/board/:boardId", async (req, res, next) => {
     try {
@@ -54,7 +40,7 @@ router.get("/board/:boardId", async (req, res, next) => {
 // [POST] - create a new card
 router.post("/", async (req, res, next) => {
     try {
-        const { title, message, gif, voteCount, boardId } = req.body;
+        const { title, message, gif, author, voteCount, boardId } = req.body;
 
         const board = await prisma.board.findUnique({
             where: { id: boardId }
@@ -70,6 +56,7 @@ router.post("/", async (req, res, next) => {
                 title,
                 message,
                 gif,
+                author,
                 voteCount,
                 boardId
             }
@@ -139,12 +126,9 @@ router.use((next) => {
 });
 
 // Error handling middleware
-router.use((req, res, next, err) => {
+router.use((err, req, res, next) => {
     const { message, status = 500 } = err;
     res.status(status).json({ message });
 });
-
-// TODO: comments for cards
-// TODO: pins for cards
 
 module.exports = router;
