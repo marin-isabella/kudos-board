@@ -1,4 +1,4 @@
-.kudo-board {
+.kudo-card {
     margin: 10px;
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.8);
@@ -12,59 +12,43 @@
     position: relative;
 }
 
-.kudo-board:hover {
+.kudo-card:hover {
     background-color: #f8f8f8;
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.kudo-board-image {
+.kudo-card-gif {
     margin-bottom: 16px;
 }
 
-.kudo-board-image img {
-    width: 200px;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.kudo-board-text {
-    margin-bottom: 16px;
-}
-
-.kudo-board-text h3 {
+.kudo-card-content h3{
     margin: 0;
     font-size: 19px;
     color: #333;
 }
 
-.kudo-board-text p {
+.kudo-card-content p {
     margin: 8px 0 0;
     color: #666;
 }
 
-.kudo-board-buttons {
+.kudo-card-buttons {
     display: flex;
     justify-content: center;
     margin-top: auto;
 }
 
-.view-board-button {
+.upvote-button {
     background-color: #535bf2;
     color: white;
     padding-left: 4px;
     padding-right: 4px;
-    border-radius: 6px;
-    text-align: center;
-    display: flex;
-    align-items: center;
 }
 
-.delete-board-button {
+.delete-card-button {
     color: white;
     background-color: #2e8b57;
-    border-radius: 6px;
     margin-left: 20px;
     padding-left: 4px;
     padding-right: 4px;
