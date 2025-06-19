@@ -57,30 +57,6 @@ router.get("/recent", async (req, res, next) => {
     }
 });
 
-// [GET] search a board by id
-// this route is not being used and will be deleted soon
-router.get("/search/:id", async (req, res, next) => {
-    try {
-        const id = req.params.id;
-        const board = await prisma.board.findMany({
-            where: {
-                title: {
-                    equals: id,
-                }
-            }
-        });
-
-        if (!board) {
-            res.status(404).json("Board not found");
-            return;
-        }
-
-        res.status(201).json(board);
-    } catch (err) {
-        next(err);
-    }
-});
-
 // [POST] CREATE a new board
 router.post("/", async (req, res, next) => {
     try {
