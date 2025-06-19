@@ -63,12 +63,41 @@ function App() {
     fetchKudoboard();
   }, [])
 
+  const createBoard = async (boardData) => {
+    // generates a random image url that gets sent to backend to store in database
+    const imageUrl = `https://picsum.photos/200/300?random=${Math.random()}`;
+
+    const newBoard = {
+      ...boardData,
+      gif: imageUrl
+    };
+
+    try {
+      const response = await fetch('http://localhost:3000/api/boards', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newBoard),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create board');
+      }
+
+      fetchKudoboard();
+
+    } catch (error) {
+      console.error('Error creating board:', error);
+    }
+  };
+
   return (
     <>
       <Header onSearch={handleSearch} onClear={handleClear}/>
       <main className="main">
         <FiltersBar onClick={handleFilterClick} selectedFilter={selectedFilter} />
-        <KudoDashboard kudoboards={kudoboard}/>
+        <KudoDashboard kudoboards={kudoboard} onCreateBoard={createBoard}/>
       </main>
       <footer>
         <p>Copyright © 2025. Created by Isabella Marin.</p>
