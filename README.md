@@ -155,7 +155,14 @@ Deployed Application (**required**): [Kudos Board Deployed Site](https://kudoboa
 
 ### Walkthrough Video
 
-`ADD_EMBEDDED_CODE_HERE`
+<div>
+    <a href="https://www.loom.com/share/70e7f0de56cd4c4db905202c86a29a9e">
+      <p>MetaU Kudoboard Project - CodePath - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/70e7f0de56cd4c4db905202c86a29a9e">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/70e7f0de56cd4c4db905202c86a29a9e-08efdc0641cc0491-full-play.gif">
+    </a>
+</div>
 
 ### Reflection
 
