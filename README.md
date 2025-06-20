@@ -50,7 +50,7 @@ Deployed Application (**required**): [Kudos Board Deployed Site](https://kudoboa
     - [X] Thank you
     - [X] Inspiration
   - [X] When a category is clicked, boards matching the specified category are displayed.
-- [ ] **Search Functionality**
+- [X] **Search Functionality**
   - [X] Users can use a search bar to search for boards by title on the home page.
   - [X] The search bar should include:
     - [X] Text input field
