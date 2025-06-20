@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Card.css';
 
 const Card = (props) => {
@@ -20,7 +19,7 @@ const Card = (props) => {
           })
           .then(data => {
             console.log("Upvoted card:", data);
-            // Update the local vote count with the new value from the server
+            // updates the current vote count in the UI to what is in the database
             setCurrentVoteCount(data.voteCount);
           })
           .catch(error => {
@@ -52,7 +51,6 @@ const Card = (props) => {
         return null;
     }
 
-
     return (
         <>
             <div className="kudo-card">
@@ -62,14 +60,16 @@ const Card = (props) => {
                 <div className="kudo-card-content">
                     <h3>{title}</h3>
                     <p>{message}</p>
-                    <p>{gif}</p>
-                    <p>Created by {author}</p>
+                    {author ? (
+                        <p className="no-cards-message">Created by {author}</p>
+                    ) : (
+                        <p className="no-cards-message">Anonymous author</p>
+                    )}
                 </div>
                 <div className="kudo-card-buttons">
                     <button className="upvote-button" onClick={() => upvoteCard(id)}>Upvote: {currentVoteCount}</button>
-                    <button className="delete-card-button" onClick={() => deleteCard(id)}>Delete Board</button>
+                    <button className="delete-card-button" onClick={() => deleteCard(id)}>Delete Card</button>
                 </div>
-
             </div>
 
         </>

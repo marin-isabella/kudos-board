@@ -20,6 +20,12 @@
 
 .kudo-card-gif {
     margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.kudo-card-gif img {
+    max-width: 100%;
 }
 
 .kudo-card-content h3{
