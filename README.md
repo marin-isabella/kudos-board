@@ -22,7 +22,7 @@
 
 Submitted by: **Isabella Marin**
 
-Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
+Deployed Application (**required**): [Kudos Board Deployed Site](https://kudoboard-rocw.onrender.com/)
 
 ### Application Features
 
@@ -63,7 +63,7 @@ Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
   - [X] When all text is cleared from the text input field, all boards are displayed in a grid view
 - [X] **View Board**
   - [X] Users can click on a board in the grid view to navigate to a new page containing that board's details.
-- [ ] **Add New Board**
+- [X] **Add New Board**
   - [X] Users can create a new board on the home page.
   - [X] When creating a new board, users can specify the:
     - [X] Title (required)
@@ -99,9 +99,9 @@ Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
 - [X] **Delete Card**
   - [X] Users can delete cards.
   - [X] When the user clicks the delete button for a card, the card disappears from the grid of cards.
-- [ ] **Deployment**
-  - [ ] Website is deployed via Render.
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough.
+- [X] **Deployment**
+  - [X] Website is deployed via Render.
+  - [X] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough.
 
 ####  Stretch Features
 
@@ -155,27 +155,25 @@ Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
-
 `ADD_EMBEDDED_CODE_HERE`
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+Yes; the topics discussed in the labs prepared me to complete the assignment. Learning about how to implement CRUD operations on the backend was especially helpful in completing this assignment, since it involved creating, reading, updating, and deleting data from a database. There were no features in my weekly assignment that I felt unprepared to complete.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
 
-Add your response here
+If I had more time, I would have improved the styling of my UI/UX, and I would have added additional features such as comments, pinning, and dark mode.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+Looking back on my project demo, I think I did a good job at demonstrating each feature of my application. Something my peers did that I would like to try next time is added banner popups to the user when there is an error in the application.
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+- No open source libraries used.
 
 ### Shout out
 
