@@ -184,4 +184,4 @@ Looking back on my project demo, I think I did a good job at demonstrating each 
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Thank you to my CodePath instructor, Gabriel Luis Cabrejas, for helping me debug all my problems with deploying my project!
