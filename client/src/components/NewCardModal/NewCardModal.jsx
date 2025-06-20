@@ -94,7 +94,7 @@ const NewCardModal = ({ isOpen, onClose, onSubmit, boardId }) => {
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="author">Your name:</label>
+                                <label htmlFor="author">Author:</label>
                                 <input
                                     type="text"
                                     id="author"
