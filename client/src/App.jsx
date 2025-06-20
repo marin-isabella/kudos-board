@@ -4,13 +4,22 @@ import { useState, useEffect } from 'react';
 import KudoDashboard from './components/KudoDashboard/KudoDashboard';
 import FiltersBar from './components/FiltersBar/FiltersBar';
 
+const getUrl = () => {
+  let base_url;
+  if (import.meta.env.VITE_DEV) {
+    base_url = 'http://localhost:3000';
+  } else {
+    base_url = 'https://kudos-board-eah6.onrender.com';
+  }
+  return base_url;
+}
 function App() {
   const [kudoboard, setKudoboard] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('All');
 
   const fetchKudoboard = async (category) => {
-    let endpoint_url = 'http://localhost:3000/api/boards';
+    let endpoint_url = `${getUrl()}/api/boards`;
 
     if (category && category!== 'All') {
       endpoint_url += `?category=${category}`;
