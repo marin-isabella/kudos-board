@@ -22,7 +22,7 @@
 
 Submitted by: **Isabella Marin**
 
-Estimated time spent: **27** hours spent in total
+Estimated time spent: **25** hours spent in total
 
 Deployed Application (**required**): [Kudos Board Deployed Site](https://kudoboard-rocw.onrender.com/)
 
