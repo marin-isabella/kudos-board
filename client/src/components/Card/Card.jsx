@@ -19,7 +19,6 @@ const Card = (props) => {
             return response.json();
           })
           .then(data => {
-            console.log("Upvoted card:", data);
             // updates the current vote count in the UI to what is in the database
             setCurrentVoteCount(data.voteCount);
           })
@@ -40,7 +39,6 @@ const Card = (props) => {
             return response.json();
           })
           .then(data => {
-            console.log("Deleted card:", data);
             setBoardDeleted(true);
           })
           .catch(error => {
