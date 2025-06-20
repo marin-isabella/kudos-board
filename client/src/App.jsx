@@ -54,6 +54,7 @@ function App() {
         .then(response => response.json())
         .then(data => setKudoboard(data))
         .catch(error => console.error("Error fetching recent kudoboards: ", error));
+
     } else {
       fetchKudoboard(filterName);
     }
