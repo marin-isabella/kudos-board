@@ -41,9 +41,9 @@ const KudoBoard = (props) => {
                     <h3>{title}</h3>
                     <p>{category}</p>
                     {author ? (
-                        <p className="no-cards-message">Created by {author}</p>
+                        <p className="author-name">Created by {author}</p>
                     ) : (
-                        <p className="no-cards-message">Anonymous author</p>
+                        <p className="author-name">Anonymous author</p>
                     )}
                 </div>
                 <div className="kudo-board-buttons">
