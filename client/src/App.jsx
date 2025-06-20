@@ -53,7 +53,7 @@ function App() {
     if (filterName === 'Recent') {
       fetch(`${getUrl()}/api/boards/recent`)
         .then(response => response.json())
-        .then(data => setKudoboard(data))
+        .then(data => setKudoboard(data.slice(0, 6)))
         .catch(error => console.error("Error fetching recent kudoboards: ", error));
 
     } else {
