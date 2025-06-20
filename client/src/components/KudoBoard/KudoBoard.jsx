@@ -39,7 +39,11 @@ const KudoBoard = (props) => {
                 <div className="kudo-board-text">
                     <h3>{title}</h3>
                     <p>{category}</p>
-                    <p>Created by {author}</p>
+                    {author ? (
+                        <p className="no-cards-message">Created by {author}</p>
+                    ) : (
+                        <p className="no-cards-message">Anonymous author</p>
+                    )}
                 </div>
                 <div className="kudo-board-buttons">
                     <Link to={`/board-details/${id}`} state={{title: title, category: category}} className="view-board-button">View Board</Link>

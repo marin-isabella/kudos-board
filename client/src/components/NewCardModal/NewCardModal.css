@@ -1,0 +1,152 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    color: #333;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #777;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.new-card-modal-title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-actions {
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.gif-search-button button {
+    background-color: #2e8b57;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.gif-search-button button:hover {
+    background-color: #236b42;
+}
+
+.gif-results {
+    margin-top: 15px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+.gif-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.gif-grid img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.gif-grid img:hover {
+    border-color: #2e8b57;
+}
+
+.gif-grid img.selected-gif {
+    border-color: #2e8b57;
+}
+
+.selected-gif-preview {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.selected-gif-preview img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 4px;
+    border: 2px solid #2e8b57;
+}
+
+.submit-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-button {
+    background-color: #2e8b57;
+    color: white;
+}
+
+.submit-button:hover {
+    background-color: #2e8b57;
+}
+
+.submit-button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
