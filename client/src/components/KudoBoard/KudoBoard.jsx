@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './KudoBoard.css';
+import { getUrl } from '../../utils';
 
 const KudoBoard = (props) => {
     const { id, image, category, title, author} = props;
     const [boardDeleted, setBoardDeleted] = useState(false);
 
     const deleteBoard = (boardId) => {
-        let endpoint_url = `http://localhost:3000/api/boards/${boardId}`;
+        let endpoint_url = `${getUrl()}/api/boards/${boardId}`;
         fetch(endpoint_url, {
           method: 'DELETE'
         })

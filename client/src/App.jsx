@@ -3,16 +3,8 @@ import Header from './components/Header/Header';
 import { useState, useEffect } from 'react';
 import KudoDashboard from './components/KudoDashboard/KudoDashboard';
 import FiltersBar from './components/FiltersBar/FiltersBar';
+import { getUrl } from './utils';
 
-const getUrl = () => {
-  let base_url;
-  if (import.meta.env.VITE_DEV) {
-    base_url = 'http://localhost:3000';
-  } else {
-    base_url = 'https://kudos-board-eah6.onrender.com';
-  }
-  return base_url;
-}
 function App() {
   const [kudoboard, setKudoboard] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -32,7 +24,7 @@ function App() {
   }
 
   const fetchSearch = async (query) => {
-    let endpoint_url = 'http://localhost:3000/api/boards';
+    let endpoint_url = `${getUrl()}/api/boards`;
     if (query && query !== '') {
       endpoint_url += `?search=${query}`;
     }
@@ -59,7 +51,7 @@ function App() {
     setSelectedFilter(filterName);
 
     if (filterName === 'Recent') {
-      fetch('http://localhost:3000/api/boards/recent')
+      fetch(`${getUrl()}/api/boards/recent`)
         .then(response => response.json())
         .then(data => setKudoboard(data))
         .catch(error => console.error("Error fetching recent kudoboards: ", error));
@@ -83,7 +75,7 @@ function App() {
     };
 
     try {
-      const response = await fetch('http://localhost:3000/api/boards', {
+      const response = await fetch(`${getUrl()}/api/boards`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -28,7 +28,7 @@ router.get("/", async (req, res, next) => {
                     cards: true
                 }
             });
-            res.status(201).json(boards);
+            res.status(200).json(boards);
             return;
         }
         const boards = await prisma.board.findMany({
@@ -51,7 +51,7 @@ router.get("/recent", async (req, res, next) => {
                 id: "desc"
             }],
         })
-        res.status(201).json(boards);
+        res.status(200).json(boards);
     } catch (err) {
         next(err);
     }

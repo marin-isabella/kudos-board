@@ -3,6 +3,7 @@ import { useParams, useLocation, Link } from 'react-router-dom';
 import Card from '../Card/Card';
 import './BoardDetails.css';
 import NewCardModal from '../NewCardModal/NewCardModal';
+import { getUrl } from '../../utils';
 
 const BoardDetails = () => {
     const { id } = useParams();
@@ -25,7 +26,7 @@ const BoardDetails = () => {
             voteCount: 0
         };
 
-        fetch('http://localhost:3000/api/cards', {
+        fetch(`${getUrl()}/api/cards`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -47,7 +48,7 @@ const BoardDetails = () => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:3000/api/cards/board/${id}`)
+        fetch(`${getUrl()}/api/cards/board/${id}`)
         .then(response => response.json())
         .then(data => setCards(data))
         .catch(error => console.error("Error fetching cards:", error));

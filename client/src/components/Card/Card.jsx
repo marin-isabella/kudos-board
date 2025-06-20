@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Card.css';
+import { getUrl } from '../../utils';
 
 const Card = (props) => {
     const { id, title, message, gif, author, voteCount, boardId} = props;
@@ -7,7 +8,7 @@ const Card = (props) => {
     const [boardDeleted, setBoardDeleted] = useState(false);
 
     const upvoteCard = (id) => {
-        let endpoint_url = `http://localhost:3000/api/cards/${id}/upvote`;
+        let endpoint_url = `${getUrl()}/api/cards/${id}/upvote`;
         fetch(endpoint_url, {
           method: 'PUT'
         })
@@ -28,7 +29,7 @@ const Card = (props) => {
     }
 
     const deleteCard = (id) => {
-        let endpoint_url = `http://localhost:3000/api/cards/${id}`;
+        let endpoint_url = `${getUrl()}/api/cards/${id}`;
         fetch(endpoint_url, {
           method: 'DELETE'
         })

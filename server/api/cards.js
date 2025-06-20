@@ -16,7 +16,7 @@ router.get("/", async (req, res, next) => {
                 board: true
             }
         });
-        res.status(201).json(cards);
+        res.status(200).json(cards);
     } catch (err) {
         next(err);
     }
@@ -31,7 +31,7 @@ router.get("/board/:boardId", async (req, res, next) => {
                 boardId: boardId
             }
         });
-        res.status(201).json(cards);
+        res.status(200).json(cards);
     } catch (err) {
         next(err);
     }
@@ -91,7 +91,7 @@ router.put("/:id/upvote", async (req, res, next) => {
             }
         });
 
-        res.status(201).json(upvotedCard);
+        res.status(200).json(upvotedCard);
     } catch (err) {
         next(err);
     }
