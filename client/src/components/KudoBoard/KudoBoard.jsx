@@ -18,7 +18,6 @@ const KudoBoard = (props) => {
             return response.json();
           })
           .then(data => {
-            console.log("Deleted kudoboard:", data);
             setBoardDeleted(true);
           })
           .catch(error => {
